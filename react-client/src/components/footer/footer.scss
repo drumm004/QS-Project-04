@@ -1,0 +1,8 @@
+@import "../../style.scss";
+
+.footer {
+    @include themify($themes) {
+        background-color: themed("bgSoft");
+        color: themed("textColor");
+    }
+}

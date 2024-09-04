@@ -2,65 +2,69 @@
 
 .leftbar {
     @include themify ($themes) { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: themed("bg");
-    flex: 2;
-    position: sticky;
-    top: 70px;
-    max-width: 300px;
-    height: calc(100vh - 70px);
-    overflow-y: scroll;
-    color: themed("textColor");
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: themed("bg");
+        flex: 2;
+        position: sticky;
+        top: 70px;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        overflow-y: scroll;
+        color: themed("textColor");
 
-    &::-webkit-scrollbar{
-        display: none;
-    }
+        @include mobile {
+            display: none;
+        }
 
-    .container {
-        padding: 20px;
+        &::-webkit-scrollbar{
+            display: none;
+        }
 
-        .item {
-            display: flex;
+        .container {
+            padding: 20px;
 
-            table {
-                border: solid 1px themed("border");
+            .item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
 
-                thead {
-                    background-color: themed("bg");
-                    text-align: center;
-                    font-weight: bold;
-                    color: themed("textColor");
+                table {
+                    border: solid 1px themed("border");
 
-                    tr:nth-child(odd) {
-                        background-color: themed ("bg");
-                    
-                        td {
-                            display: flex;
-                            align-items: center;
-                            padding: 5px;
-                            color: themed ("bgSoft");
+                    thead {
+                        background-color: themed("bg");
+                        font-size: x-large;
+                        text-align: center;
+                        font-weight: bold;
+                        color: themed("textColor");
 
-                            img {
-                                width: 30px;
-                                height: 30px;
-                                border-radius: 50%;
-                                object-fit: cover;
-                                gap: 10px;
+                        tr:nth-child(odd) {
+                            background-color: themed ("bg");
+                        
+                            td {
+                                display: flex;
+                                align-items: center;
+                                padding: 5px;
+                                color: themed ("bgSoft");
+
+                                img {
+                                    width: 30px;
+                                }
+
+                                span {
+                                    font-size: 16px;
+                                    font-family: cursive;
+                                    color: themed ("logo");
+                                }
                             }
-
-                            span {
-                                font-size: 16px;
-                                font-family: cursive;
-                                color: themed ("logo");
-                            }
-                        }
-                    }                  
+                        }                  
+                    }
                 }
             }
         }
-    }
 
-}
+    }
 }

@@ -9,5 +9,9 @@
         @include mobile {
             padding: 10px;
         }
+
+        @include tablet {
+            padding: 20px;
+        }
     }
 }

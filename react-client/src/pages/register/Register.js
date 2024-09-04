@@ -1,21 +1,19 @@
 import axios from "axios";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./register.scss";
+import "./Register.scss";
 
 const Register = () => {
-
     const [inputs, setInputs] = useState({
         username: "",
         email: "",
         password: "",
         name: "",
-    })
-
-    const [err, setErr] = useState(null)
+    });
+    const [err, setErr] = useState(null);
 
     const handelChange = (e) => {
-        setInputs(prev => ({...prev, [e.target.name]: e.target.value }))
+        setInputs(prev => ({...prev, [e.target.name]: e.target.value }));
     };
 
     const handleClick = async (e) => {
@@ -23,10 +21,10 @@ const Register = () => {
         
 
         try {
-            await axios.post("http://localhost:5000/QS-Project-04/pages/register/Register", inputs);
+            await axios.post("http://localhost:5000/QS-Project-04/auth/register/", inputs);
             window.location.replace("/login");
         }catch(axiosErr) {
-            setErr(err.responce.date);
+            setErr(err.responce.data);
         }
     };
 
@@ -34,11 +32,13 @@ const Register = () => {
         <div className="register">
             <div className="card">
                 <div className="left">
-                    <h1>Hello</h1>
+                    <h1>Welcome</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aperiam 
-                        sunt optio ex odit ipsam! Eos reiciendis eaque mollitia velit in deserunt 
-                        odit facere quasi?
+                        Bringing all levels of jewelers and crafters together for the purposes of increasing 
+                        authenticity, craftsmanship, and overall value in the jewelry industry from the newest 
+                        Do-it-yourself to the seasoned profesional.
+                        <a href="https://www.freepik.com/free-photo/shiny-elegant-gold-chain-display_38652680.htm#fromView=search&page=3&position=15&uuid=ae23a5f4-fbc1-45ed-85a0-9894f3f091da">Image by freepik</a>
+                    <br></br>
                     </p>
                     <span>Do you have an account?</span>
                     <Link to="/login">
@@ -51,7 +51,7 @@ const Register = () => {
                         <input 
                             type="text" 
                             placeholder="User Name" 
-                            name="userName" 
+                            name="username" 
                             onChange={handelChange}
                         />
                         <input 
