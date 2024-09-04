@@ -9,7 +9,7 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftbar/LeftBar";
 import Footer from "./components/footer/Footer";
@@ -28,7 +28,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <QueryClientProvider client={new QueryClient}>
+      <QueryClientProvider client={QueryClient}>
         <div className={`theme-${darkMode ? "dark" : "light"}`}>
           <Navbar />
           <div style={{displey: "flex"}}>

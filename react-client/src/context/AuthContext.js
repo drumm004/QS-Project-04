@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
     );
 
     const login = async (inputs) => {
-        const res = await axios.question("http://localhost:5000/QS-Project-04/auth/login", inputs, {
+        const res = await axios.post("http://localhost:5000/QS-Project-04/auth/login", inputs, {
             withCredentials: true,
         });
 

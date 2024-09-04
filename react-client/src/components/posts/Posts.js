@@ -1,7 +1,7 @@
-import Post from "../post/Post.js";
+import Post from "../post/Post";
 import "./Posts.scss";
 import { useQuery } from "@tanstack/react-query";
-import { makeRequest } from "../../axios.js";
+import { makeRequest } from "../../axios";
   
 
 const Posts = () => {
@@ -11,11 +11,15 @@ const Posts = () => {
         })
     );
 
-  return <div className="posts">
-        {Posts.map(post => (
-          <Post post={post} key={post.id} />
-        ))}
+  return (
+    <div className="posts">
+      {error 
+        ? "Something went wrong!" 
+        : isLoading 
+        ? "loading" 
+        : data.map((post) => <Post post={post} key={post.id} />)}
     </div>
+  );
 };
 
 export default Posts;

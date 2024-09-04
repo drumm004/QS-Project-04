@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.scss";
+import axios from "axios";
 
 const Register = () => {
     const [inputs, setInputs] = useState({
@@ -13,7 +13,7 @@ const Register = () => {
     const [err, setErr] = useState(null);
 
     const handelChange = (e) => {
-        setInputs(prev => ({...prev, [e.target.name]: e.target.value }));
+        setInputs((prev) => ({...prev, [e.target.name]: e.target.value }));
     };
 
     const handleClick = async (e) => {
@@ -22,11 +22,12 @@ const Register = () => {
 
         try {
             await axios.post("http://localhost:5000/QS-Project-04/auth/register/", inputs);
-            window.location.replace("/login");
-        }catch(axiosErr) {
+        }   catch (err) {
             setErr(err.responce.data);
-        }
+        };
     };
+
+    console.log(err)
 
     return (
         <div className="register">
@@ -55,15 +56,15 @@ const Register = () => {
                             onChange={handelChange}
                         />
                         <input 
-                            type="password" 
-                            placeholder="Password" 
-                            name="password" 
-                            onChange={handelChange}
-                        />
-                         <input 
                             type="email" 
                             placeholder="Email" 
                             name="email" 
+                            onChange={handelChange}
+                        />
+                        <input 
+                            type="password" 
+                            placeholder="Password" 
+                            name="password" 
                             onChange={handelChange}
                         />
                         <input 
@@ -79,6 +80,6 @@ const Register = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Register;

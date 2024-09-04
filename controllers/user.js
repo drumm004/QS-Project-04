@@ -1,3 +1,4 @@
-export const getUser = (state) => {
-    //return state.user;
+export const getUser = (req, res) => {
+
+    
 }

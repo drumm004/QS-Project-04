@@ -51,7 +51,7 @@ const Login = () => {
                         <input 
                             type="text" 
                             placeholder="User Name" 
-                            name="userName"
+                            name="username"
                             onChange={handelChange} 
                         />
                         <input 
