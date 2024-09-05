@@ -13,5 +13,9 @@
         @include tablet {
             padding: 20px;
         }
+
+        .footer {
+            display: flex;
+        }
     }
 }

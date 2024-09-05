@@ -7,6 +7,9 @@ const Materialscat = () => {
     <div className="category">
       <Share/>
       <Posts/>
+      <div className="footer">
+        <Footer/>
+      </div>
     </div>
   )
 };

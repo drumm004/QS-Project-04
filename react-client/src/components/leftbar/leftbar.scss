@@ -3,15 +3,11 @@
 .leftbar {
     @include themify ($themes) { 
         display: flex;
-        flex-direction: column;
         align-items: center;
         background-color: themed("bg");
-        flex: 2;
-        position: sticky;
-        top: 70px;
-        max-width: 300px;
-        height: calc(100vh - 70px);
-        overflow-y: scroll;
+        bottom: 0;
+        max-width: 100vh;
+        height: 70px;
         color: themed("textColor");
 
         @include mobile {
