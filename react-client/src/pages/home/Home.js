@@ -1,9 +1,11 @@
 import "../home/Home.scss";
-import Posts from "../../components/posts/Posts.js";
+import Posts from "../../components/posts/Posts";
+import Share from "../../components/share/Share";
 
 const Home = () => {
   return (
     <div className="home">
+      <Share/>
       <Posts/>
     </div>
   )

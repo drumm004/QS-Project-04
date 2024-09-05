@@ -41,7 +41,7 @@ const Register = () => {
                         <a href="https://www.freepik.com/free-photo/shiny-elegant-gold-chain-display_38652680.htm#fromView=search&page=3&position=15&uuid=ae23a5f4-fbc1-45ed-85a0-9894f3f091da">Image by freepik</a>
                     <br></br>
                     </p>
-                    <span>Do you have an account?</span>
+                    <span>Do you already have an account?</span>
                     <Link to="/login">
                     <button>Login</button>
                     </Link>

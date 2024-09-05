@@ -1,12 +1,25 @@
+import "./Share.scss";
 import { useContext, useState } from "react";
-import { AutoContext } from "../../context/authContext";
-import { useMutation, useQueryClient } from "@tanstack/react-querry";
+import { AuthContext } from "../../context/authContext";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 
 const Share = () => {
     const [file, setFile] = useState(null);
     const [desc, setDesc] = useState ("");
 
-    const { currentUser } = useContext(AutoContext);
+    const upload = async () => {
+        try {
+            const formData = new FormData();
+            formData.append("file", file);
+            const res = await makeRequest.post("/upload", formData);
+            return res.data;
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const { currentUser } = useContext(AuthContext);
 
     const queryClient = useQueryClient();
 
@@ -26,7 +39,7 @@ const Share = () => {
         e.preventDefault();
         let imgUrl = ("");
         if (file) imgUrl = await upload();
-        mutation.mutate({desc, img, imgUrl });
+        mutation.mutate({desc: imgUrl });
         setDesc("");
         setFile(null);
     };
@@ -45,7 +58,7 @@ const Share = () => {
                     </div>
                     <div className="right">
                         {file && (
-                            <img className="file" alt="" src={URL.createObjectURL(file)} alt="" />
+                            <img className="file" alt="" src={URL.createObjectURL(file)} />
                         )}
                     </div>
                 </div>
@@ -60,14 +73,10 @@ const Share = () => {
                         />
                         <label htmlFor="file">
                             <div className="item">
-                                <img src={map} alt=""/>
+                                <img src={Image} alt="" />
                                 <span>Add Image</span>
                             </div>
                         </label>
-                        <div className="item">
-                            <img src={map} alt=""/>
-                            <span>Add Place</span>
-                        </div>
                     </div>
                     <div className="right">
                         <button onClick={handleClick}>Share</button>

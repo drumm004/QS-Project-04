@@ -1,11 +1,8 @@
 import Login from ".//pages/login/Login";
 import Register from ".//pages/register/Register";
-//import Questions from ".//pages/questions/Questions";
-//import Answers from ".//pages/answers/Answers";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Outlet,
   Navigate,
 } from "react-router-dom";
@@ -47,16 +44,18 @@ function App() {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
+
     return children;
   };
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: 
+      element: (
         <ProtectedRoute>
           <Layout />
-        </ProtectedRoute>,
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: "/",
@@ -64,7 +63,6 @@ function App() {
         },
       ],
     },
-
     {
       path: "/login",
       element: <Login />,
@@ -73,8 +71,8 @@ function App() {
       path: "/register",
       element: <Register />,
     }
-    
   ]);
+
   return (
     <div>
       <RouterProvider router={router}/>

@@ -5,8 +5,8 @@ import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import commentRoutes from "./routes/comments.js";
 import cors from "cors";
+import multer from "multer";
 import cookieParser from "cookie-parser";
-import mysql from "mysql2";
 
 //middlewares
 app.use((req, res, next) => {
@@ -14,16 +14,21 @@ app.use((req, res, next) => {
     next()
 });
 app.use(express.json());
-app.use(cors({ origin: "https://localhost:3000", }));
+app.use(cors({ origin: "http://localhost:3000", }));
 app.use(cookieParser());
 app.set("view engine", "ejs");
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "finalproject"
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "../client/public/upload");
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + file.originalname);
+    },
 });
+
+const upload = multer({ storage: storage });
+
 
 app.use("/QS-Project-04/auth", authRoutes);
 app.use("/QS-Project-04/users", userRoutes);
@@ -31,5 +36,5 @@ app.use("/QS-Project-04/posts", postRoutes);
 app.use("/QS-Project-04/comments", commentRoutes);
 
 app.listen(5000, ()=>{
-    console.log("Server listening now at http://localhost:5000")
+    console.log("It is working!")
 });

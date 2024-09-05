@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./Login.scss";
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -14,15 +13,15 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handelChange = (e) => {
-        setInputs(prev => ({...prev, [e.target.name]: e.target.value }));
+        setInputs((prev) => ({...prev, [e.target.name]: e.target.value }));
     };
     const { login } = useContext(AuthContext);
 
     const handleLogin  = async (e) => {
         e.preventDefault();
         try {
-        await login(inputs);
-        navigate("/");
+            await login(inputs);
+            navigate("/");
         }catch(err) {
             setErr(err.response.data);
         }
@@ -40,7 +39,7 @@ const Login = () => {
                       <a href="https://www.freepik.com/free-photo/many-colorful-beads-plier-wooden-desk_4635908.htm#fromView=search&page=4&position=1&uuid=8b39d615-0ddf-4875-b9e2-d63bb1947aa9">Image by freepik</a>
                     <br></br>
                     </p>
-                    <span>Don't have an account yet?</span>
+                    <span>DDo you need an account?</span>
                     <Link to="/register">
                         <button>Register</button>
                     </Link>
@@ -67,6 +66,6 @@ const Login = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Login;
