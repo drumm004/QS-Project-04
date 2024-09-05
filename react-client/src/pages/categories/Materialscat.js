@@ -1,14 +1,14 @@
-import "../home/Home.scss";
+import "../categories/category.scss";
 import Posts from "../../components/posts/Posts";
 import Share from "../../components/share/Share";
 
-const Home = () => {
+const Materialscat = () => {
   return (
-    <div className="home">
+    <div className="category">
       <Share/>
       <Posts/>
     </div>
   )
 };
 
-export default Home;
+export default Materialscat;

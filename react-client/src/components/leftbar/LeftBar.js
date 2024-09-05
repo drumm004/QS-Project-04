@@ -5,12 +5,9 @@ import Earrings from "../../images/3.png";
 import Necklaces from "../../images/4.png";
 import Rings from "../../images/5.png";
 import Accessories from "../../images/6.png";
-import { AuthContext } from "../../context/authContext";
-import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const LeftBar = () =>{
-
-    const {currentUser} = useContext(AuthContext);
 
     return (
         <div className="leftbar">
@@ -19,40 +16,59 @@ const LeftBar = () =>{
                     <table>
                         <thead>Categories</thead>
                             <tr>
-                                <td className="tools">
+                                <th className="tools">
                                 <img src={Tools} alt="stylized image of jeweler's tools." />
-                                <span>Tools</span>
-                                </td>
+                                <Link to="/Toolscat">
+                                    <span>Tools</span>
+                                </Link>
+                                </th>
                             </tr>
                             <tr>
-                                <td className="materials">
+                                <th className="materials">
                                     <img src={Materials} alt="Stylized images of gems and gold near a safe." />
-                                    <span>Metals & Materials</span>
-                                </td>
+                                    <Link to="/Materialcat">
+                                        <span>Metals & Materials</span>
+                                    </Link>
+                                </th>
                             </tr>
                             <tr>
-                                <td className="earrings">
+                                <th className="earrings">
                                     <img src={Earrings} alt="Stylized images of earrings with pearl and heat charms." />
+                                    <Link to="/Earringscat">
+                                        <span>Earrings</span>
+                                    </Link>
                                     <span>Earrings & Piercings</span>
-                                </td>
+                                
+                                </th>
                             </tr>
                             <tr>
-                                <td className="necklaces">
+                                <th className="necklaces">
                                     <img src={Necklaces} alt="Stylized image of a butterfly-pendant necklace displayed on a bust." />
+                                    <Link to="/Necklacescat">
+                                        <span>Necklaces</span>
+                                    </Link>
                                     <span>Necklaces & Bracelets</span>
-                                </td>
+                                
+                                </th>
                             </tr>
                             <tr>
-                                <td className="rings">
+                                <th className="rings">
                                     <img src={Rings} alt="Stylized image of a diamond stone ring displayed in a box." />
+                                    <Link to="/Ringscat">
+                                        <span>Rings</span>
+                                    </Link>
                                     <span>Rings</span>
-                                </td>
+                                
+                                </th>
                             </tr>
                             <tr>
-                                <td className="accessories">
+                                <th className="accessories">
                                     <img src={Accessories} alt="Stylized image of a paw print charm and a heart charm on a keyring." />
-                                    <span>Accessories: keychains, zipper-pulls, etc.</span>
-                                </td>
+                                    <Link to="/Accessoriescat">
+                                        <span>Accessories</span>
+                                        <span>Accessories: keychains, zipper-pulls, etc.</span>
+                                    </Link>
+                                </th>
                             </tr>
                             <tfoot><a href="https://www.freepik.com/icon/earrings_2439487#fromView=search&page=1&position=10&uuid=6a0bf312-b2c3-45a2-bdc9-aa0922fcce65">Icons by Freepik</a></tfoot>
                     </table>
